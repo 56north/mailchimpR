@@ -31,4 +31,3 @@ post_segment <- post_segment(name = "my_new_segment", static_segment = c("e@mail
 ## End(**Not run**)
 
 }
-
