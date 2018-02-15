@@ -21,4 +21,3 @@ Is a helperfunction to extract the server that needs to be called in the api cal
 apiending(apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usxx")
 ## End(**Not run**)
 }
-

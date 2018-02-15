@@ -5,7 +5,7 @@
 \title{Get recent notes for a specific list member}
 \usage{
 get_list_member_note(list_id = NULL, subscriber_hash = NULL,
-  apikey = NULL, user = "anystring", ...)
+  apikey = NULL, user = "anystring", type = "application/json", ...)
 }
 \arguments{
 \item{list_id}{The unique id for the list. Find the list id with \code{\link{get_lists}}.}
@@ -15,6 +15,8 @@ get_list_member_note(list_id = NULL, subscriber_hash = NULL,
 \item{apikey}{API key for mailchimp account.}
 
 \item{user}{User to use in authentication. Can be any string you like. Defaults to "anystring".}
+
+\item{type}{MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.}
 
 \item{...}{Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/notes/}{API documentation}.}
 
@@ -33,4 +35,3 @@ mymember_note <- get_list_member_note(apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## End(**Not run**)
 
 }
-

@@ -34,4 +34,3 @@ post_segment_members <- post_segment_members(list_id = "xxxxxxxxxx", members_to_
 ## End(**Not run**)
 
 }
-

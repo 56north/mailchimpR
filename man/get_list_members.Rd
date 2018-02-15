@@ -4,7 +4,8 @@
 \alias{get_list_members}
 \title{Get information about members in a list}
 \usage{
-get_list_members(list_id = NULL, apikey = NULL, user = "anystring", ...)
+get_list_members(list_id = NULL, apikey = NULL, user = "anystring",
+  type = "application/json", ...)
 }
 \arguments{
 \item{list_id}{The unique id for the list. Find the list id with \code{\link{get_lists}}}
@@ -12,6 +13,8 @@ get_list_members(list_id = NULL, apikey = NULL, user = "anystring", ...)
 \item{apikey}{API key for mailchimp account}
 
 \item{user}{User to use in authentication. Can be any string you like. Defaults to "anystring".}
+
+\item{type}{MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.}
 
 \item{...}{Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#}{API documentation}.}
 }
@@ -28,4 +31,3 @@ mymembers <- get_list_members(apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usxx", 
 ## End(**Not run**)
 
 }
-
