@@ -6,6 +6,7 @@
 #'
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#}{API documentation}.
 #'
@@ -19,6 +20,7 @@
 
 get_lists <- function(apikey = NULL,
                       user = "anystring",
+                      type = "application/json",
                       ...){
 
   # Sanity check
@@ -35,7 +37,7 @@ get_lists <- function(apikey = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -52,6 +54,7 @@ get_lists <- function(apikey = NULL,
 #' @param list_id The unique id for the list. Find the list id with \code{\link{get_lists}}
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#}{API documentation}.
 #'
@@ -66,6 +69,7 @@ get_lists <- function(apikey = NULL,
 get_list <- function(list_id = NULL,
                      apikey = NULL,
                      user = "anystring",
+                     type = "application/json",
                      ...){
 
   # Sanity check
@@ -83,7 +87,7 @@ get_list <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -100,6 +104,7 @@ get_list <- function(list_id = NULL,
 #' @param list_id The unique id for the list. Find the list id with \code{\link{get_lists}}
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#}{API documentation}.
 #'
@@ -114,6 +119,7 @@ get_list <- function(list_id = NULL,
 get_list_members <- function(list_id = NULL,
                      apikey = NULL,
                      user = "anystring",
+                     type = "application/json",
                      ...){
 
   # Sanity check
@@ -131,7 +137,7 @@ get_list_members <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -148,6 +154,7 @@ get_list_members <- function(list_id = NULL,
 #' @param subscriber_hash The MD5 hash of the lowercase version of the list member’s email address.
 #' @param apikey API key for mailchimp account.
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#}{API documentation}.
 #'
@@ -162,6 +169,7 @@ get_list_member <- function(list_id = NULL,
                             subscriber_hash = NULL,
                              apikey = NULL,
                              user = "anystring",
+                             type = "application/json",
                              ...){
 
   # Sanity check
@@ -180,7 +188,7 @@ get_list_member <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -197,6 +205,7 @@ get_list_member <- function(list_id = NULL,
 #' @param subscriber_hash The MD5 hash of the lowercase version of the list member’s email address.
 #' @param apikey API key for mailchimp account.
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/activity/}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/activity/}{API documentation}.
 #'
@@ -211,6 +220,7 @@ get_list_member_activity <- function(list_id = NULL,
                             subscriber_hash = NULL,
                             apikey = NULL,
                             user = "anystring",
+                            type = "application/json",
                             ...){
 
   # Sanity check
@@ -229,7 +239,7 @@ get_list_member_activity <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -246,6 +256,7 @@ get_list_member_activity <- function(list_id = NULL,
 #' @param subscriber_hash The MD5 hash of the lowercase version of the list member’s email address.
 #' @param apikey API key for mailchimp account.
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/goals/}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/goals/}{API documentation}.
 #'
@@ -260,6 +271,7 @@ get_list_member_goals <- function(list_id = NULL,
                                      subscriber_hash = NULL,
                                      apikey = NULL,
                                      user = "anystring",
+                                     type = "application/json",
                                      ...){
 
   # Sanity check
@@ -278,7 +290,7 @@ get_list_member_goals <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -295,6 +307,7 @@ get_list_member_goals <- function(list_id = NULL,
 #' @param subscriber_hash The MD5 hash of the lowercase version of the list member’s email address.
 #' @param apikey API key for mailchimp account.
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/notes/}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/notes/}{API documentation}.
 #'
@@ -309,6 +322,7 @@ get_list_member_notes <- function(list_id = NULL,
                                   subscriber_hash = NULL,
                                   apikey = NULL,
                                   user = "anystring",
+                                  type = "application/json",
                                   ...){
 
   # Sanity check
@@ -327,7 +341,7 @@ get_list_member_notes <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -345,6 +359,7 @@ get_list_member_notes <- function(list_id = NULL,
 #' @param note_id The id for the note.
 #' @param apikey API key for mailchimp account.
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/notes/}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/notes/}{API documentation}.
 #'
@@ -359,6 +374,7 @@ get_list_member_note <- function(list_id = NULL,
                                   subscriber_hash = NULL,
                                   apikey = NULL,
                                   user = "anystring",
+                                  type = "application/json",
                                   ...){
 
   # Sanity check
@@ -377,7 +393,7 @@ get_list_member_note <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -393,6 +409,7 @@ get_list_member_note <- function(list_id = NULL,
 #' @param list_id The unique id for the list. Find the list id with \code{\link{get_lists}}
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #'
@@ -407,6 +424,7 @@ get_list_member_note <- function(list_id = NULL,
 get_list_segments <- function(list_id = NULL,
                              apikey = NULL,
                              user = "anystring",
+                             type = "application/json",
                              ...){
 
   # Sanity check
@@ -424,7 +442,7 @@ get_list_segments <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -441,6 +459,7 @@ get_list_segments <- function(list_id = NULL,
 #' @param segment_id The unique id for the segment.
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #'
@@ -455,6 +474,7 @@ get_list_segment <- function(list_id = NULL,
                               segment_id = NULL,
                               apikey = NULL,
                               user = "anystring",
+                              type = "application/json",
                               ...){
 
   # Sanity check
@@ -473,7 +493,7 @@ get_list_segment <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
@@ -490,6 +510,7 @@ get_list_segment <- function(list_id = NULL,
 #' @param segment_id The unique id for the segment.
 #' @param apikey API key for mailchimp account
 #' @param user User to use in authentication. Can be any string you like. Defaults to "anystring".
+#' @param type MIME type (aka internet media type) used to override the content type returned by the server. See \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of common types.
 #' @param ... Query string parameters. See available parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #' @return Response body parameters. See response parameters under READ here: \href{https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#}{API documentation}.
 #'
@@ -504,6 +525,7 @@ get_list_segment_members <- function(list_id = NULL,
                               segment_id = NULL,
                               apikey = NULL,
                               user = "anystring",
+                              type = "application/json",
                               ...){
 
   # Sanity check
@@ -522,7 +544,7 @@ get_list_segment_members <- function(list_id = NULL,
                        httr::authenticate(user, apikey))
 
   # Convert the response to JSON
-  GETdata <- httr::content(GETdata, type = "application/json")
+  GETdata <- httr::content(GETdata)
 
   # Return data
   return(GETdata)
